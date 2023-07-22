@@ -1,16 +1,19 @@
 import os
 import numpy as np
 
-
 f = open("calories.txt", "r")
-count = 0
 biggest_elf = np.array([0, 0, 0])
 current_elf = 0
 total_calories = 0
+count = 0
+
 for line in f:
     count += 1
     if line != "\n":
-        current_elf += int(line)
+        try:
+            current_elf += int(line)
+        except ValueError:
+            print(f"File contains an incorrect value on line {count}")
     else:
         if biggest_elf[0] < current_elf:
             biggest_elf[0] = current_elf
