@@ -1,32 +1,37 @@
 import os
 
-# rock = a and x, worth 1 point
-# paper = b and y, worth 2 points
-# scissors = c and z, worth 3 points
+# x=lose,y=draw,z=win
 
 f = open("input.txt", "r")
 score = 0
 
 for line in f:
-    our_action = line[2]
+    results = line[2]
     opponent_player = line[0]
-    if our_action == "X":
-        score += 1
-        if opponent_player == "C":
-            score += 6
-        elif opponent_player == "A":
-            score += 3
-    if our_action == "Y":
-        score += 2
+
+    if results == "Z":
+        score += 6
         if opponent_player == "A":
-            score += 6
+            score += 2
         elif opponent_player == "B":
             score += 3
-    if our_action == "Z":
+        else:
+            score += 1
+    elif results == "Y":
         score += 3
-        if opponent_player == "B":
-            score += 6
-        elif opponent_player == "C":
+        if opponent_player == "A":
+            score += 1
+        elif opponent_player == "B":
+            score += 2
+        else:
             score += 3
+    else:
+        if opponent_player == "A":
+            score += 3
+        elif opponent_player == "B":
+            score += 1
+        else:
+            score += 2
+
 
 print(score)
