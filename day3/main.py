@@ -11,6 +11,7 @@ common_char = ""
 score = 0
 count = 0
 
+
 def solution1():
     with open("input.txt", "r") as f:
         line = True
@@ -24,6 +25,7 @@ def solution1():
             print(score)
 
 
+solution1()
 
 
 # for line in f:
