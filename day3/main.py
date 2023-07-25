@@ -11,16 +11,19 @@ common_char = ""
 score = 0
 count = 0
 
-with open("input.txt", "r") as f:
-    line = True
-    while line:
-        line = (f.readline().rstrip(), f.readline().rstrip(), f.readline().strip())
-        common_char = set.intersection(*map(set, line)).pop()
-        if common_char.isupper() == True:
-            score += int(ord(common_char) - ord("A") + 27)
-        else:
-            score += int(ord(common_char) - ord("a") + 1)
-        print(score)
+def solution1():
+    with open("input.txt", "r") as f:
+        line = True
+        while line:
+            line = (f.readline().rstrip(), f.readline().rstrip(), f.readline().strip())
+            common_char = set.intersection(*map(set, line)).pop()
+            if common_char.isupper() == True:
+                score += int(ord(common_char) - ord("A") + 27)
+            else:
+                score += int(ord(common_char) - ord("a") + 1)
+            print(score)
+
+
 
 
 # for line in f:
